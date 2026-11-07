@@ -33,8 +33,16 @@ public static class OverlayModel
             rows.Add(new OverlayRow(L.T("Dernière", "Last"), L.Count(last.ChestsOpened, "coffre", "chest")));
         }
 
+        var rates = Stats.Compute(d.Matches, live);
+        var sessionRates = Stats.Compute(session, live);
+        rows.Add(new OverlayRow(L.T("Coffres / h", "Chests / h"), rates.ChestsPerHourText,
+            Detail: sessionRates.ChestsPerHour != null ? $"session {sessionRates.ChestsPerHourText}" : null));
+
         var treasures = d.Matches.Sum(m => m.TreasureFinds.Count) + liveTreasures;
-        rows.Add(new OverlayRow(L.T("Trésors", "Treasures"), $"★ {L.N(treasures)}", Treasure: true));
+        rows.Add(new OverlayRow(L.T("Trésors", "Treasures"), $"★ {L.N(treasures)}", Treasure: true,
+            Detail: rates.TreasuresPerHour != null ? $"{rates.TreasuresPerHourText} / h" : null));
+        rows.Add(new OverlayRow(L.T("Depuis ★", "Since ★"), L.Count(rates.ChestsSinceTreasure, "coffre", "chest"),
+            Detail: rates.AnyTreasure ? null : L.T("aucun trésor encore", "no treasure yet")));
 
         // Right counter: the match in progress when readable, "…" while it cannot be read yet, else the last match.
         if (live != null)

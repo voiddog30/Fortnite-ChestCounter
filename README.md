@@ -64,7 +64,9 @@ When this option is on, a tiny invisible process starts with Windows and checks 
 
 - **Big numbers**: your **total** chests (gold) and the chests of your **last match**.
 - **Session**: chests since the tool was started, with the number of matches and the average.
-- **Last**: chests of your last match. **Treasures**: treasures found so far.
+- **Last**: chests of your last match. **Treasures**: treasures found so far, with treasures per hour played.
+- **Chests / h**: chests opened per hour played (overall, and for the session).
+- **Since ★**: chests opened since your last treasure.
 - During a match, the badge **● MATCH IN PROGRESS** appears and the right counter shows "…" until the match ends.
 
 To see it over the game, set Fortnite to **Windowed Fullscreen** (*Settings → Video → Window Mode*): in exclusive fullscreen, Windows cannot draw anything on top of the game. Streaming? `overlay.html` is the same overlay with a transparent background, for an **OBS** browser source.
@@ -88,7 +90,7 @@ The single-letter keys work in the tool's window. If another program already use
 
 ## The report
 
-`report.html` opens in your browser and refreshes by itself: total, average, best match, chests per day, breakdown by chest type, treasures and every match.
+`report.html` opens in your browser and refreshes by itself: total, average, best match, chests and treasures per hour played, chests since the last treasure, chests per day, breakdown by chest type, treasures and every match.
 
 <p align="center"><img src="docs/report-en.png" alt="Report" width="820"></p>
 
