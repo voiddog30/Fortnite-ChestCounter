@@ -64,7 +64,9 @@ Avec cette option, un tout petit processus invisible démarre avec Windows et v�
 
 - **En grand** : ton **total** de coffres (en or) et les coffres de ta **dernière partie**.
 - **Session** : les coffres depuis le lancement de l'outil, avec le nombre de parties et la moyenne.
-- **Dernière** : les coffres de ta dernière partie. **Trésors** : les trésors trouvés.
+- **Dernière** : les coffres de ta dernière partie. **Trésors** : les trésors trouvés, avec le nombre de trésors par heure de jeu.
+- **Coffres / h** : coffres ouverts par heure de jeu (au total, et pour la session).
+- **Depuis ★** : coffres ouverts depuis ton dernier trésor.
 - Pendant une partie, le badge **● PARTIE EN COURS** apparaît et le compteur de droite affiche « … » jusqu'à la fin.
 
 Pour le voir par-dessus le jeu, mets Fortnite en **« Plein écran fenêtré »** (*Paramètres → Vidéo → Mode de fenêtre*) : en plein écran exclusif, Windows ne peut rien afficher par-dessus le jeu. Tu streames ? `overlay.html` est le même overlay à fond transparent, pour une source navigateur **OBS**.
@@ -88,7 +90,7 @@ Les touches d'une lettre fonctionnent dans la fenêtre de l'outil. Si un autre p
 
 ## Le rapport
 
-`report.html` s'ouvre dans ton navigateur et se met à jour tout seul : total, moyenne, record, coffres par jour, détail par type de coffre, trésors et chaque partie.
+`report.html` s'ouvre dans ton navigateur et se met à jour tout seul : total, moyenne, record, coffres et trésors par heure de jeu, coffres depuis le dernier trésor, coffres par jour, détail par type de coffre, trésors et chaque partie.
 
 <p align="center"><img src="docs/report-fr.png" alt="Rapport" width="820"></p>
 

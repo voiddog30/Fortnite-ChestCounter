@@ -176,6 +176,7 @@ public static class ReportWriter
         var best = matches.Count > 0 ? matches.Max(m => m.ChestsOpened) : 0;
         var treasures = matches.Sum(m => m.TreasureFinds.Count);
         var session = matches.Where(IsThisSession).Sum(m => m.ChestsOpened);
+        var rates = Stats.Compute(matches);
         var player = matches.Select(m => m.PlayerName).FirstOrDefault(n => !string.IsNullOrEmpty(n)) ?? "";
 
         var sb = new StringBuilder();
@@ -198,6 +199,9 @@ public static class ReportWriter
               <div class="tile"><div class="v">{best}</div><div class="l">{L.T("record en une partie", "best match")}</div></div>
               <div class="tile"><div class="v">{session}</div><div class="l">{L.T("coffres depuis le lancement de l'outil", "chests since the tool was started")}</div></div>
               <div class="tile"><div class="v">{treasures}</div><div class="l">{L.T("trésors repérés", "treasures found")}</div></div>
+              <div class="tile"><div class="v">{rates.ChestsPerHourText}</div><div class="l">{L.T($"coffres par heure ({rates.HoursPlayedText} de jeu)", $"chests per hour ({rates.HoursPlayedText} played)")}</div></div>
+              <div class="tile"><div class="v">{rates.TreasuresPerHourText}</div><div class="l">{L.T("trésors par heure", "treasures per hour")}</div></div>
+              <div class="tile"><div class="v">{rates.ChestsSinceTreasure.ToString("N0", Fr)}</div><div class="l">{(rates.AnyTreasure ? L.T("coffres depuis le dernier trésor", "chests since the last treasure") : L.T("coffres sans trésor pour l'instant", "chests without a treasure so far"))}</div></div>
             </section>
             """);
 

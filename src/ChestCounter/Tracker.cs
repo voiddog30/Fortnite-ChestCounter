@@ -559,6 +559,13 @@ public sealed class Tracker
         {
             var avg = ((double)chests / matches.Count).ToString("F1", L.Culture);
             sb.Append(L.T($"   |   Moyenne : {avg} / partie", $"   |   Average: {avg} / match"));
+            var rates = Stats.Compute(matches);
+            sb.Append(L.T($"   |   {rates.ChestsPerHourText} coffres / h, {rates.TreasuresPerHourText} trésors / h",
+                $"   |   {rates.ChestsPerHourText} chests / h, {rates.TreasuresPerHourText} treasures / h"));
+            var since = L.Count(rates.ChestsSinceTreasure, "coffre", "chest");
+            sb.Append(rates.AnyTreasure
+                ? L.T($"   |   Depuis le dernier trésor : {since}", $"   |   Since last treasure: {since}")
+                : L.T($"   |   Aucun trésor en {since}", $"   |   No treasure in {since}"));
         }
 
         Console.ForegroundColor = ConsoleColor.Cyan;
